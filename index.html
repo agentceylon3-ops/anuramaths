@@ -2355,67 +2355,140 @@ html {
 
 
 <!-- අපගේ ඉගැන්වීම් ක්‍රමවේදය Section -->
-<section class="youtube-player-section">
+<section class="youtube-single-section">
     <div class="yt-container">
         <h2 class="yt-main-title">අපගේ ඉගැන්වීම් ක්‍රමවේදය නරඹන්න</h2>
         
-        <div class="yt-layout">
-            <!-- Main Large Video (Left side on PC) -->
-            <div class="yt-main-player-wrapper">
-                <div class="yt-responsive-video">
-                    <iframe id="main-video-iframe" src="https://youtu.be/_-Z3y0vj0Mo?si=-GsUW54NQM-3MKM7" 
-                            title="Main Teaching Video" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                    </iframe>
+        <div class="yt-card-wrapper">
+            <a href="https://youtu.be/_-Z3y0vj0Mo" target="_blank" class="yt-video-link">
+                <!-- Video Thumbnail -->
+                <img src="https://img.youtube.com/vi/_-Z3y0vj0Mo/hqdefault.jpg" alt="Teaching Method Video" class="yt-thumb">
+                
+                <!-- Play Button Overlay -->
+                <div class="play-btn-overlay">
+                    <div class="play-icon"></div>
                 </div>
-                <h3 id="main-video-title" class="current-video-title"> ගණිත කුලක ලේසියෙන්ම </h3>
-            </div>
-
-            <!-- Playlist Sidebar (Right side on PC) -->
-            <div class="yt-sidebar-playlist">
-                <h4 class="playlist-heading">වෙනත් වීඩියෝ (Playlist)</h4>
-                <div class="playlist-items">
-                    
-                    <!-- Playlist Item 1 -->
-                    <div class="playlist-card active" onclick="changeVideo('https://youtu.be/_-Z3y0vj0Mo?si=-GsUW54NQM-3MKM7', 'අපගේ ඉගැන්වීම් ක්‍රමවේදය - වීඩියෝ 01', this)">
-                        <div class="thumb-cover">
-                            <img src="https://youtu.be/_-Z3y0vj0Mo?si=-GsUW54NQM-3MKM7/mqdefault.jpg" alt="Thumbnail 1">
-                        </div>
-                        <div class="video-info">
-                            <h5>ගණිත කුලක ලේසියෙන්ම</h5>
-                            <p>Sir - Online Class</p>
-                        </div>
-                    </div>
-
-                    <!-- Playlist Item 2 -->
-                    <div class="playlist-card" onclick="changeVideo('https://youtu.be/BYdfkHzqSAw?si=n_-e5tj_Ejxbv_mG', 'අපගේ ඉගැන්වීම් ක්‍රමවේදය - වීඩියෝ 02', this)">
-                        <div class="thumb-cover">
-                            <img src="https://youtu.be/BYdfkHzqSAw?si=n_-e5tj_Ejxbv_mG/mqdefault.jpg" alt="Thumbnail 2">
-                        </div>
-                        <div class="video-info">
-                            <h5>තප්පර 30න් වර්ගමූලය</h5>
-                            <p>Sir - Teaching Method</p>
-                        </div>
-                    </div>
-
-                    <!-- Playlist Item 3 -->
-                    <div class="playlist-card" onclick="changeVideo('https://youtu.be/BYdfkHzqSAw?si=0oYOE5L14h5Nk0vw', 'අපගේ ඉගැන්වීම් ක්‍රමවේදය - වීඩියෝ 03', this)">
-                        <div class="thumb-cover">
-                            <img src="https://youtu.be/BYdfkHzqSAw?si=0oYOE5L14h5Nk0vw/mqdefault.jpg" alt="Thumbnail 3">
-                        </div>
-                        <div class="video-info">
-                            <h5>කුලක පටල ගන්න එපා</h5>
-                            <p>Sir - O/L Section</p>
-                        </div>
-                    </div>
-
-                </div>
+            </a>
+            <div class="yt-caption">
+                <p>වීඩියෝව නැරඹීමට පින්තූරය මත Click කරන්න</p>
             </div>
         </div>
     </div>
 </section>
+
+<!-- CSS Styling (Mobile Responsive & Clean Design) -->
+<style>
+    .youtube-single-section {
+        padding: 40px 20px;
+        background-color: #f4f6f9;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .yt-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .yt-main-title {
+        font-size: 26px;
+        color: #111;
+        margin-bottom: 20px;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .yt-card-wrapper {
+        position: relative;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        background: #000;
+    }
+
+    .yt-video-link {
+        display: block;
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        height: 0;
+        overflow: hidden;
+    }
+
+    .yt-thumb {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .yt-card-wrapper:hover .yt-thumb {
+        transform: scale(1.03);
+    }
+
+    /* Red Play Button Overlay */
+    .play-btn-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 68px;
+        height: 48px;
+        background-color: rgba(255, 0, 0, 0.9);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s ease;
+    }
+
+    .yt-card-wrapper:hover .play-btn-overlay {
+        background-color: #ff0000;
+    }
+
+    .play-icon {
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 16px solid #ffffff;
+        margin-left: 4px;
+    }
+
+    .yt-caption {
+        background: #181818;
+        padding: 12px;
+        text-align: center;
+    }
+
+    .yt-caption p {
+        color: #fff;
+        margin: 0;
+        font-size: 14px;
+    }
+
+    /* Mobile Responsive adjustments */
+    @media (max-width: 576px) {
+        .youtube-single-section {
+            padding: 20px 10px;
+        }
+        .yt-main-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .play-btn-overlay {
+            width: 54px;
+            height: 38px;
+        }
+        .play-icon {
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 13px solid #ffffff;
+        }
+    }
+</style>
 
 
 
